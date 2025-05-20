@@ -1,5 +1,7 @@
-import { Router, Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
+
 import { getExample } from '../controllers';
+
 const router: Router = Router();
 
 router.get('/', (req: Request, res: Response) => {
