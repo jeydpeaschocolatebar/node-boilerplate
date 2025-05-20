@@ -138,3 +138,6 @@ dist
 # lock files
 package-lock.json
 pnpm-lock.yaml
+
+# husky
+.husky/_/.gitignore
