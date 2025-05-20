@@ -1,6 +1,40 @@
 {
+  "name": "node-boilerplate",
+  "version": "0.0.1",
+  "description": "A simple Node.js boilerplate with TypeScript, Express, and Zod",
+  "main": "src/app.ts",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/app.js",
+    "dev": "nodemon --watch src/ --exec ts-node src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeydpeaschocolatebar/node-boilerplate.git"
+  },
+  "keywords": [
+    "node",
+    "server",
+    "api",
+    "boiler-plate"
+  ],
+  "author": "Jade Francis Palco",
+  "bugs": {
+    "url": "https://github.com/jeydpeaschocolatebar/node-boilerplate/issues"
+  },
+  "homepage": "https://github.com/jeydpeaschocolatebar/node-boilerplate#readme",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "zod": "^3.25.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.19",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
