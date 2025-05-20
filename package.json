@@ -1,0 +1,67 @@
+{
+  "name": "node-boilerplate",
+  "version": "0.0.1",
+  "description": "A simple Node.js boilerplate with TypeScript, Express, and Zod",
+  "main": "src/app.ts",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/app.js",
+    "dev": "nodemon --watch src/ --exec ts-node src/app.ts",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "format": "prettier --write \"{src,apps,libs,test}/**/*.ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeydpeaschocolatebar/node-boilerplate.git"
+  },
+  "keywords": [
+    "node",
+    "server",
+    "api",
+    "boiler-plate"
+  ],
+  "author": "Jade Francis Palco",
+  "bugs": {
+    "url": "https://github.com/jeydpeaschocolatebar/node-boilerplate/issues"
+  },
+  "homepage": "https://github.com/jeydpeaschocolatebar/node-boilerplate#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "zod": "^3.25.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.19",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "globals": "^16.1.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.4.2",
+    "lint-staged": "^16.0.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
