@@ -136,5 +136,5 @@ dist
 .pnp.*
 
 # lock files
-# package-lock.json
+package-lock.json
 pnpm-lock.yaml
