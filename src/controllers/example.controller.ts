@@ -10,7 +10,7 @@ const getExample = (req: Request, res: Response) => {
 };
 
 export {
-    getExample
+    getExample,
     // Add more controller functions as needed
     // e.g., createExample, updateExample, deleteExample
 };
