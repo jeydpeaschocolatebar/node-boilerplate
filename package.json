@@ -5,6 +5,7 @@
   "main": "src/app.ts",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node dist/app.js",

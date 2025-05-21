@@ -10,42 +10,42 @@ export default tseslint.config(
     {
         // Files to ignore from linting
         ignores: [
-            "node_modules/",
-            "dist/",
-            ".env",
-            "*.js", // Ignore generated JS files if not linting them
-        ],
+            'node_modules/',
+            'dist/',
+            '.env',
+            '*.js' // Ignore generated JS files if not linting them
+        ]
     },
     pluginJs.configs.recommended, // Recommended JS rules
     ...tseslint.configs.recommended, // Recommended TypeScript rules
     {
         // Custom configuration for TypeScript files
-        files: ["src/**/*.ts"],
+        files: ['src/**/*.ts'],
         languageOptions: {
             parser: tseslint.parser,
             parserOptions: {
                 project: './tsconfig.json',
-                sourceType: 'module',
+                sourceType: 'module'
             },
             globals: {
-                ...globals.node, // Node.js global variables
+                ...globals.node // Node.js global variables
             }
         },
         plugins: {
-            prettier: prettierPlugin,
+            prettier: prettierPlugin
         },
         rules: {
             ...prettierConfig.rules, // Apply Prettier rules via eslint-config-prettier
-            "prettier/prettier": "error", // Enable prettier/prettier rule
+            'prettier/prettier': 'error', // Enable prettier/prettier rule
             // Configure no-unused-vars to ignore variables starting with an underscore
-            "@typescript-eslint/no-unused-vars": [
-                "warn", // You can change this to "error" if you prefer
+            '@typescript-eslint/no-unused-vars': [
+                'error',
                 {
-                    "argsIgnorePattern": "^_", // Ignore unused arguments starting with _
-                    "varsIgnorePattern": "^_", // Ignore unused variables starting with _
-                    "caughtErrorsIgnorePattern": "^_" // Ignore caught errors starting with _
+                    argsIgnorePattern: '^_', // Ignore unused arguments starting with _
+                    varsIgnorePattern: '^_', // Ignore unused variables starting with _
+                    caughtErrorsIgnorePattern: '^_' // Ignore caught errors starting with _
                 }
-            ],
+            ]
             // Place to add your custom ESLint rules
             // e.g., '@typescript-eslint/explicit-module-boundary-types': 'off',
         }
