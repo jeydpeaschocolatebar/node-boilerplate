@@ -152,11 +152,28 @@ Default provider is **PostgreSQL**. To switch to **SQLite** (zero-config local d
 2. Update `prisma/schema.prisma` datasource provider to `sqlite` (see comment in schema)
 3. Run `pnpm db:generate && pnpm db:migrate`
 
+## Authentication Strategies
+
+This boilerplate ships two strategies. Use one or both.
+
+### JWT (stateless)
+
+- Endpoints: `POST /api/auth/login`, `POST /api/auth/refresh`, `POST /api/auth/logout`
+- Protect routes: `requireAuth` middleware
+- Best for: mobile clients, microservices, cross-domain APIs
+
+### Session-based (stateful)
+
+- Endpoints: `POST /api/auth/session/login`, `POST /api/auth/session/logout`, `GET /api/auth/session/me`
+- Protect routes: `requireSessionAuth` middleware
+- Store: PostgreSQL via `connect-pg-simple` (table auto-created on first run)
+- Best for: traditional web apps, same-domain SPAs
+
 ## Auth Roadmap
 
-- [ ] JWT — access + refresh tokens (`/auth/login`, `/auth/refresh`, `/auth/logout`)
-- [ ] Auth middleware — `requireAuth`, `optionalAuth`
-- [ ] Session-based — server-side sessions with PostgreSQL or Redis store
+- [x] JWT — access + refresh tokens (`/auth/login`, `/auth/refresh`, `/auth/logout`)
+- [x] Auth middleware — `requireAuth`, `optionalAuth`
+- [x] Session-based — server-side sessions with PostgreSQL store
 - [ ] OAuth — Google + GitHub strategy stubs
 
 ## License
