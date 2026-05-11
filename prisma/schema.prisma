@@ -1,0 +1,31 @@
+// Prisma schema — https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client"
+    output   = "../generated/prisma"
+}
+
+// ── Database provider ────────────────────────────────────────────────────────
+// Default: PostgreSQL. Switch to SQLite for local-only dev (no server needed):
+//
+//   datasource db {
+//     provider = "sqlite"
+//     url      = env("DATABASE_URL") // DATABASE_URL=file:./dev.db
+//   }
+// ────────────────────────────────────────────────────────────────────────────
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// ── Models ───────────────────────────────────────────────────────────────────
+// Add your models here. Example:
+//
+// model User {
+//   id        String   @id @default(cuid())
+//   email     String   @unique
+//   name      String?
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
+// ─────────────────────────────────────────────────────────────────────────────

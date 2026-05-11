@@ -137,3 +137,5 @@ dist
 
 # lock files
 package-lock.json
+
+/generated/prisma

@@ -1,13 +1,18 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
 
 import { getExample } from '../controllers';
+import healthRouter from './health';
 
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    res.send('API server is running!');
-});
+// ── Health ───────────────────────────────────────────────────────────────────
+router.use('/health', healthRouter);
 
-router.use('/example', getExample); // Use the controller function for the route
+// ── Example ──────────────────────────────────────────────────────────────────
+router.get('/example', getExample);
 
-export default router; // Use default export
+// ── Add resource routes here ─────────────────────────────────────────────────
+// import userRouter from './user';
+// router.use('/users', userRouter);
+
+export default router;
