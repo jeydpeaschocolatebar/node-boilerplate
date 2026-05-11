@@ -36,13 +36,17 @@
     "homepage": "https://github.com/jeydpeaschocolatebar/node-boilerplate#readme",
     "dependencies": {
         "@prisma/client": "^6.19.3",
+        "bcryptjs": "^3.0.3",
         "dotenv": "^16.5.0",
         "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.3",
         "zod": "^3.25.1"
     },
     "devDependencies": {
         "@eslint/js": "^9.27.0",
+        "@types/bcryptjs": "^3.0.0",
         "@types/express": "^5.0.2",
+        "@types/jsonwebtoken": "^9.0.10",
         "@types/node": "^22.15.19",
         "@types/supertest": "^7.2.0",
         "@typescript-eslint/eslint-plugin": "^8.32.1",
