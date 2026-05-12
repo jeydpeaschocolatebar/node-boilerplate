@@ -1,0 +1,7 @@
+#!/bin/sh
+remote_ref="$2"
+
+if echo "$remote_ref" | grep -q "refs/heads/main"; then
+  echo "Direct push to main is blocked. Open a pull request instead."
+  exit 1
+fi

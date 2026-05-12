@@ -2,6 +2,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import express from 'express';
 import request from 'supertest';
 
+vi.mock('../middlewares/rateLimiter', () => ({
+    authLimiter: (_req: unknown, _res: unknown, next: () => void) => next(),
+    generalLimiter: (_req: unknown, _res: unknown, next: () => void) => next()
+}));
+
 vi.mock('../db/index', () => ({
     prisma: {
         user: { findUnique: vi.fn() },
