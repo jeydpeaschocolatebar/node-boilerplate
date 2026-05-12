@@ -3,16 +3,31 @@ import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import session from 'express-session';
 import PgSession from 'connect-pg-simple';
+import helmet from 'helmet';
+import cors from 'cors';
 
 import routes from './routes/index';
 import { errorHandler } from './middlewares/errorHandler';
 import { notFound } from './middlewares/notFound';
+import { generalLimiter } from './middlewares/rateLimiter';
+import { buildCorsOrigins } from './utils/cors';
 
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+app.use(helmet());
+app.use(
+    cors({
+        origin: buildCorsOrigins(),
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id']
+    })
+);
+app.use(generalLimiter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
