@@ -3,6 +3,11 @@ import express from 'express';
 import session from 'express-session';
 import request from 'supertest';
 
+vi.mock('../middlewares/rateLimiter', () => ({
+    authLimiter: (_req: unknown, _res: unknown, next: () => void) => next(),
+    generalLimiter: (_req: unknown, _res: unknown, next: () => void) => next()
+}));
+
 vi.mock('../db/index', () => ({
     prisma: {
         user: { findUnique: vi.fn() }
